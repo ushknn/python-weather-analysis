@@ -1,5 +1,5 @@
 import numpy as np
-
+    
 def load_sst():
     loadfile = './data/sst_OISST.npz'
     sst_dataset = np.load(loadfile)
@@ -22,6 +22,26 @@ def load_sst():
 
 def load_ssta():
     loadfile = './data/ssta_OISST.npz'
+    ssta_dataset = np.load(loadfile)
+    # sea surface temperature
+    ssta = ssta_dataset['ssta']
+    
+    #
+    lon2 = ssta_dataset['lon2']
+    
+    #
+    lat2 = ssta_dataset['lat2']
+    
+    # yaer
+    y = ssta_dataset['y']
+    
+    # month
+    m = ssta_dataset['m']
+
+    return ssta, lon2, lat2, y, m
+
+def load_detrended_ssta():
+    loadfile = './data/detrended_ssta_OISST.npz'
     ssta_dataset = np.load(loadfile)
     # sea surface temperature
     ssta = ssta_dataset['ssta']
