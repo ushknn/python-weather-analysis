@@ -20,6 +20,25 @@ def load_sst():
 
     return sst, lon2, lat2, y, m
 
+def load_ssta():
+    loadfile = './data/ssta_OISST.npz'
+    ssta_dataset = np.load(loadfile)
+    # sea surface temperature
+    ssta = ssta_dataset['ssta']
+    
+    #
+    lon2 = ssta_dataset['lon2']
+    
+    #
+    lat2 = ssta_dataset['lat2']
+    
+    # yaer
+    y = ssta_dataset['y']
+    
+    # month
+    m = ssta_dataset['m']
+
+    return ssta, lon2, lat2, y, m
 
 def load_tokyo_temp():
     tokyo_temp = np.genfromtxt("data/Tokyo_temp.csv",
